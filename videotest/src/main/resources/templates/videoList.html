@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+    <h1 align="center">Video List</h1>
+
+    <hr>
+    <table border="1" align="center">
+        <thead ></thead>
+        <tbody>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>URL</td>
+                <td>Operation</td>
+
+            </tr>
+            <tr th:each = "i:${vList}">
+
+                <td th:text = "${i.id}"></td>
+                <td th:text = "${i.name}"></td>
+                <td ><a th:text = "${i.url}" th:href="@{'http://192.168.80.131:8080/videoPlay?id='+${i.id}}"></a></td>
+                <!--<td><a th:href="@{'http://192.168.80.131:8080/delete?id='+${i.id}}">delete</a></td>-->
+                <td><a th:href="@{'http://192.168.80.131:8080/delete?id='+${i.id}}">delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
